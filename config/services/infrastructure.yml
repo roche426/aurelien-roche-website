@@ -1,0 +1,4 @@
+services:
+
+  infrastructure.info_resume_repository:
+  class:      pp\Infrastructure\Repository\InfoResumeRepository

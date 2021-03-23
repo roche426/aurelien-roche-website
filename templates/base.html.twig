@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{% block metaTitle %}Aurélien ROCHE - Développeur{% endblock %}</title>
+        <link href="{{ asset('img/favicon.png') }}" rel="icon">
+        <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+        {% block meta %}
+            <meta content="" name="description">
+            <meta content="" name="keywords">
+        {% endblock %}
+
+        {% block stylesheets %}{% endblock %}
+        {% block headerJavascripts %}{% endblock %}
+    </head>
+    <body>
+        {% block header %}{% endblock %}
+        {% block content %}{% endblock %}
+        {% block footer %}{% endblock %}
+        {% block bodyJavascripts %}{% endblock %}
+    </body>
+</html>

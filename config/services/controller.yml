@@ -1,0 +1,5 @@
+services:
+
+  controller.home_page:
+    class:        App\Controller\HomePageController
+    arguments:    ['@appplication.front_service']

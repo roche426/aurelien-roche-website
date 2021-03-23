@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {% include 'Front/Bloc/stylesheetBootstrapeMade.html.twig' %}
+{% endblock %}
+
+{% block header %}
+    {% include 'Front/nav.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    {% include 'Front/Section/accueil.html.twig' %}
+    {% include 'Front/Section/about.html.twig' %}
+    <main id="main">
+        {% include 'Front/Section/competences.html.twig' %}
+        {% include 'Front/Section/resume.html.twig' %}
+        {# {% include 'Front/Section/portfolio.html.twig' %} #}
+        {# {% include 'Front/portfolioDetails.html.twig' %} #}
+        {% include 'Front/Section/formation.html.twig' %}
+    </main>
+{% endblock %}
+
+{% block footer %}
+    {% include 'Front/footer.html.twig' %}
+{% endblock %}
+
+{% block bodyJavascripts %}
+    {% include 'Front/Bloc/scriptBootstrapeMade.html.twig' %}
+{% endblock %}

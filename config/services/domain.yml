@@ -1,0 +1,5 @@
+services:
+
+domain.info_resume_service:
+  class:      App\Domain\Services\InfoResumeService
+  arguments:    ['@infrastructure.info_resume_repository']
