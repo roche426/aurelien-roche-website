@@ -5,13 +5,15 @@ namespace App\Infrastructure\Repository;
 use DateTime;
 use App\Infrastructure\Interfaces\InfoResumeRepository as InfoResumeInterface;
 
-class InfoResumeRepository implements InfoResumeInterface
+class ResumeRepository implements InfoResumeInterface
 {
     /**
      * @return array[]
      */
     public function findResumes(): array
     {
+
+
         return [
             [
                 'poste' => 'Développeur PHP',

@@ -1,4 +1,5 @@
 services:
 
-  infrastructure.info_resume_repository:
-  class:      pp\Infrastructure\Repository\InfoResumeRepository
+infrastructure.info_resume_repository:
+  class: App\Infrastructure\Repository\ResumeRepository
+  tags: ['doctrine.repository_service']
