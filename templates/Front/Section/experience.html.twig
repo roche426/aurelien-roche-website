@@ -9,11 +9,11 @@
                 <h3 class="resume-title">{{ experience.company }} - {{ experience.job}} </h3>
                 <div class="resume-item pb-0">
                     <em class="fw-bold">
-                        De {{ experience.dateBegin|date("m-Y") }}
+                        Du {{ experience.dateBegin|date("d/m/Y") }}
                         {% if experience.dateEnd is null %}
                             et actuellement en poste
                         {% else %}
-                        à  {{ experience.dateEnd|date("m-Y") }}
+                        au  {{ experience.dateEnd|date("d/m/Y") }}
                         {% endif %}
                     </em>
                     <h4 class="mt-1">Missions :</h4>
