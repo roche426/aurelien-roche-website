@@ -3,14 +3,14 @@
 
 namespace App\Infrastructure\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use App\Infrastructure\Repository\ResumeRepository;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="resume")
+ * @ORM\Table(name="experience")
  * */
-class Resume
+class Experience
 {
     /**
      * @ORM\Id()
@@ -42,44 +42,44 @@ class Resume
     /**
      * @ORM\Column(type="text")
      */
-    private $experience;
+    private $description;
 
     /**
      * @ORM\Column(type="text")
      */
     private $technologies;
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getJob()
+    public function getJob(): string
     {
         return $this->job;
     }
 
-    public function getCompany()
+    public function getCompany(): string
     {
         return $this->company;
     }
 
-    public function getDateBegin()
+    public function getDateBegin(): DateTime
     {
         return $this->dateBegin;
     }
 
-    public function getDateEnd()
+    public function getDateEnd(): ?DateTime
     {
         return $this->dateEnd;
     }
 
-    public function getExperience()
+    public function getDescription(): string
     {
-        return $this->experience;
+        return $this->description;
     }
 
-    public function getTechnologies()
+    public function getTechnologies(): string
     {
         return $this->technologies;
     }

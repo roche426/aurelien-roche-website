@@ -1,5 +1,5 @@
 services:
 
-  application.front_service:
-    class:      App\Application\Services\FrontService
+  application.resume_service:
+    class:      App\Application\Services\ResumeService
     arguments:    ['@domain.info_resume_service']

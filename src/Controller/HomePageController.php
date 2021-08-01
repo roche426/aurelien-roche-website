@@ -2,27 +2,21 @@
 
 namespace App\Controller;
 
-use App\Application\Services\FrontService;
+use App\Application\Services\ResumeService;
 use App\Infrastructure\Entity\Resume;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomePageController extends AbstractController
 {
-    /** @var FrontService */
-    private $frontService;
+    private $resumeService;
 
-    public function __construct(FrontService $frontService)
+    public function __construct(ResumeService $resumeService)
     {
-        $this->frontService = $frontService;
+        $this->resumeService = $resumeService;
     }
 
     public function index()
     {
-        $product = $this->getDoctrine()
-            ->getRepository(Resume::class)
-            ->findAll();
-
-        dump($product);die;
-        return $this->render('Front/homePage.html.twig', $this->frontService->getParamsHomePageIndex());
+        return $this->render('Front/homePage.html.twig', $this->resumeService->getParamsHomePageIndex());
     }
 }

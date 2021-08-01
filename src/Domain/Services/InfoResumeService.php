@@ -2,73 +2,20 @@
 
 namespace App\Domain\Services;
 
-use App\Domain\ValueObjet\Presentation;
-use App\Domain\ValueObjet\Resume;
-use App\Domain\ValueObjet\Skill;
-use App\Infrastructure\Interfaces\InfoResumeRepository;
-use App\Domain\Interfaces\InfoResumeService as InfoResumeServiceInterface;
+use App\Domain\Entity\Resume;
+use App\Domain\Provider\ResumeProvider;
 
-class InfoResumeService implements InfoResumeServiceInterface
+class InfoResumeService
 {
-    /** @var InfoResumeRepository */
-    private $infoResumeRepository;
+    private $resumeProvider;
 
-    public function __construct(InfoResumeRepository $infoResumeRepository)
+    public function __construct(ResumeProvider $resumeProvider)
     {
-        $this->infoResumeRepository = $infoResumeRepository;
+        $this->resumeProvider = $resumeProvider;
     }
 
-    /**
-     * @return Resume[]
-     */
-    public function getResumes(): array
+    public function getResumes(): Resume
     {
-        $resumes = [];
-        foreach ($this->infoResumeRepository->findResumes() as $resume) {
-            $resumes[] = new Resume(
-                $resume['poste'],
-                $resume['entreprise'],
-                $resume['dateDebut'],
-                $resume['dateFin'],
-                $resume['descriptif'],
-                $resume['environnement']
-            );
-        }
-        return $resumes;
-    }
-
-    /**
-     * @return Skill[]
-     */
-    public function getSkills(): array
-    {
-        $skills = [];
-        foreach ($this->infoResumeRepository->findSkills() as $skill) {
-            $skills[] = new Skill(
-                $skill['techno'],
-                $skill['level']
-            );
-        }
-        return $skills;
-    }
-
-    /**
-     * @return Presentation
-     */
-    public function getPresentation(): Presentation
-    {
-        $presentation = $this->infoResumeRepository->findPresentation();
-
-        return new Presentation(
-            $presentation['description'],
-            $presentation['job'],
-            $presentation['mobilite'],
-            $presentation['poste'],
-            $presentation['wordsDescriptif'],
-            $presentation['hobbies'],
-            $presentation['email'],
-            $presentation['langues'],
-            $presentation['image']
-        );
+        return $this->resumeProvider->getResume();
     }
 }
