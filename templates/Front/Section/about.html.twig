@@ -3,29 +3,33 @@
         <div class="section-title">
             <h2>Qui suis-je</h2>
         </div>
+        {% if resume.presentation.teaser is not null %}
+        <div class="text-center mb-4">
+            <h5><b><i>{{ resume.presentation.teaser }}</i></b></h5>
+        </div>
+        {% endif %}
         <div class="row">
             <div class="col-lg-4">
                 <img src="{{ asset('img/about.jpg') }}" class="img-fluid" alt="">
-{#                <img src="{{ presentation.accroche }}" class="img-fluid" alt="">#}
             </div>
             <div class="col-lg-8 pt-4 pt-lg-0 content">
-                <h3>{{ presentation.job }}</h3>
+                <h3>{{ resume.presentation.company }}</h3>
                 <p class="fw-bold">Quelques mots pour me présenter!</p>
-                {{ presentation.description|raw  }}
+                {{ resume.presentation.description|raw  }}
                 <div class="row mt-4">
                     <div class="col-lg-6">
                         <ul>
-                            <li><i class="bx bxs-briefcase"></i> <strong>Poste:</strong> <span>{{ presentation.poste }}</span></li>
-                            <li><i class="bx bxs-bus-school"></i> <strong>Cursus:</strong> <span>Commerce / Informatique</span></li>
-                            <li><i class="bx bxs-city"></i> <strong>Mobilité:</strong> <span>{{ presentation.mobilite }}</span></li>
-                            <li><i class="bx bxs-envelope"></i> <strong>Email:</strong> <span>{{ presentation.email }}</span></li>
+                            <li><i class="bx bxs-briefcase"></i> <strong>Poste:</strong> <span>{{ resume.presentation.company }}</span></li>
+                            <li><i class="bx bxs-bus-school"></i> <strong>Cursus:</strong> <span>{{ resume.presentation.formation }}</span></li>
+                            <li><i class="bx bxs-city"></i> <strong>Mobilité:</strong> <span>{{ resume.presentation.mobility }}</span></li>
+                            <li><i class="bx bxs-envelope"></i> <strong>Email:</strong> <span>{{ resume.presentation.email }}</span></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <ul>
-                            <li><i class="bx bxs-id-card"></i> <strong>Age:</strong><span>{{ presentation.age }} ans</span></li>
-                            <li><i class="bx bxs-message-rounded-detail"></i> <strong>Langues:</strong> <span>{{ presentation.langues|join(' / ') }}</span></li>
-                            <li><i class="bx bxs-game"></i> <strong>Intérêts:</strong> <span>{{ presentation.hobbies|join(', ') }}</span></li>
+                            <li><i class="bx bxs-id-card"></i> <strong>Age:</strong><span>{{ date().diff(date("01/31/1993")).y }} ans</span></li>
+                            <li><i class="bx bxs-message-rounded-detail"></i> <strong>Langues:</strong> <span>{{ resume.presentation.languages }}</span></li>
+                            <li><i class="bx bxs-game"></i> <strong>Intérêts:</strong> <span>{{ resume.presentation.hobbies }}</span></li>
                         </ul>
                     </div>
                 </div>

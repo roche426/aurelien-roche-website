@@ -2,4 +2,8 @@ services:
 
 domain.info_resume_service:
   class:      App\Domain\Services\InfoResumeService
-  arguments:    ['@infrastructure.info_resume_repository']
+  arguments:    ['@domain.resume_provider']
+
+domain.resume_provider:
+  class: App\Domain\Provider\InfoResumeService
+  arguments: [ '@infrastructure.experiences_repository', '@infrastructure.skills_repository', '@infrastructure.presentation_repository' ]

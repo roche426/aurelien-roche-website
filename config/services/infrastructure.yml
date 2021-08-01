@@ -1,4 +1,11 @@
 services:
 
-  infrastructure.info_resume_repository:
-  class:      pp\Infrastructure\Repository\InfoResumeRepository
+infrastructure.experiences_repository:
+  class: App\Infrastructure\Repository\Resume\ExperiencesRepository
+
+infrastructure.skills_repository:
+  class: App\Infrastructure\Repository\Resume\SkillsRepository
+
+infrastructure.presentation_repository:
+  class: App\Infrastructure\Repository\Resume\PresentationRepository
+
